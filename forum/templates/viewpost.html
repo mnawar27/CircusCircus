@@ -17,6 +17,38 @@
 		{{post.content}}
 	</div>
 
+<!-- Maisha -- beginning of code -->
+<!-- Like/Dislike Buttons -->
+<div class="reactions">
+    <!-- Like Button -->
+    <form action="/react" method="POST" style="display: inline-block;">
+        <input type="hidden" name="post_id" value="{{ post.id }}">
+        <input type="hidden" name="reaction" value="like">
+        <button type="submit" 
+                class="btn {{ 'btn-success' if current_reaction and current_reaction.reaction_type == 'like' else 'btn-outline-success' }}">
+            👍 <span>{{ likes if likes else '' }}</span>
+        </button>
+    </form>
+
+    <!-- Dislike Button -->
+    <form action="/react" method="POST" style="display: inline-block; margin-left: 10px;">
+        <input type="hidden" name="post_id" value="{{ post.id }}">
+        <input type="hidden" name="reaction" value="dislike">
+        <button type="submit" 
+                class="btn {{ 'btn-danger' if current_reaction and current_reaction.reaction_type == 'dislike' else 'btn-outline-danger' }}">
+            👎 <span>{{ dislikes if dislikes else '' }}</span>
+        </button>
+    </form>
+</div>
+
+<style>
+    .btn { display: flex; align-items: center; padding: 8px 20px; font-size: 16px; }
+    .btn span { font-weight: bold; color: white; margin-left: 5px; }
+    .reactions { display: flex; }
+</style>
+
+<!-- Maisha -- end of code-->
+
 </div>
 <div class="addcomment" id="addcomment">
 	<form action="/action_comment?post={{ post.id }}" method="POST">
@@ -25,9 +57,7 @@
 	</form>
 </div>
 <div style="text-align: center;">
-
 	
-
 	{% if current_user.is_authenticated %}
 	<input type="button" id="displayaddcomment" onclick="toggle()" value="Add a comment">
 

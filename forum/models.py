@@ -66,6 +66,22 @@ class Post(db.Model):
             self.savedresponce =  "Just a moment ago!"
 
         return self.savedresponce
+    
+#Maisha --beginning of code
+class PostReaction(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    post_id = db.Column(db.Integer, db.ForeignKey('post.id'), nullable=False)
+    reaction_type = db.Column(db.String(10), nullable=False)  # "like" or "dislike"
+
+    user = db.relationship('User', backref='reactions')
+    post = db.relationship('Post', backref='reactions')
+
+    def __repr__(self):
+        return f'<PostReaction user_id={self.user_id} post_id={self.post_id} reaction={self.reaction_type}>'
+    
+#Maisha -- end of code
+   
 
 class Subforum(db.Model):
     id = db.Column(db.Integer, primary_key=True)
