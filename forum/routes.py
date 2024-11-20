@@ -34,9 +34,25 @@ def action_logout():
 	return redirect("/")
 
 
+# @rt.route('/user_settings')
+# def user_settings():
+# 	return "<p> Hellooooooo</p>"
+
 @rt.route('/user_settings')
 def user_settings():
-	return "<p> Hellooooooo</p>"
+    if request.method == 'POST':
+        # Get form data
+        username = request.form.get('username')
+        pronoun = request.form.get('pronoun')
+        bio = request.form.get('bio')
+        
+        # Process or save the data (e.g., save to the database)
+        print(f"Received: Username={username}, Pronoun={pronoun}, Bio={bio}")
+        return f"<p>Saved! Username: {username}, Pronoun: {pronoun}, Bio: {bio}</p>"
+    
+    # Render the settings form
+    return render_template("user_settings.html")
+
 
 @rt.route('/action_createaccount', methods=['POST'])
 def action_createaccount():
