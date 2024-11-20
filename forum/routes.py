@@ -38,6 +38,11 @@ def action_logout():
 	logout_user()
 	return redirect("/")
 
+
+@rt.route('/user_settings')
+def user_settings():
+	return "<p> Hellooooooo</p>"
+
 @rt.route('/action_createaccount', methods=['POST'])
 def action_createaccount():
 	username = request.form['username']
