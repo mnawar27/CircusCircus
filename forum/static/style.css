@@ -1,28 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+body{
+	background-image: linear-gradient(#36aa7b,#104d62);
+	background-repeat: no-repeat;
+  	background-attachment: fixed;
+}
 .page{
-	font-family: Verdana;
+	font-family: Plus Jakarta Sans;
 	font-style: normal;
 	font-size: 14pt;
 
-	margin-left: auto;
+	margin-left: 40%;
 	margin-right: auto;
-	margin-top: 1%;
-	width: 80%;
+	margin-top: 4%;
 	
 	padding-left: 3%;
 	padding-right: 3%;
+	height: 100vh;
+
+	
 
 }
+/* https://ibb.co/Q6kJrmY */
 .header{
-	border: 1px solid black;
-	overflow: hidden;
+	position: relative;
+	background-image: url("https://i.imgur.com/EO2PGfo.png");
+	background-repeat: no-repeat;
+	background-color: #ffffff;
+	background-size: contain;
+	
+	height:150px;
 	vertical-align: middle;
 	padding: 0.5%;
-	margin-bottom: none;
+	
+}
+.afterlinks{
+	color:red;
 }
 .content{
 	margin-top: 0.5%;
 }
 .login{
+	position:absolute;
+	bottom:0px;
+	right:0px;
 	width: 25%;
 	float: right;
 	text-align: center;
@@ -47,11 +68,13 @@
 	text-align: center;
 
 }
-.subforumlisting{
-	border-bottom: 1px solid gray;
-	padding: 1%;
-	margin-bottom: 1%;
-}
+ .subforumlisting{
+	padding: 5px;
+	margin-bottom: 5px;
+	border: #000000 solid;
+	border-radius: 25px;
+	background-color: #ffffff;
+} 
 .inputbox{
 	padding: 0.25%;
 	margin-top: 0.5%;
@@ -64,19 +87,45 @@
 	color: red;
 	font-weight: bold;
 }
-.subforumtitle{
-	color: blue;
-	font-size: 15pt;
-	font-weight: bold;
+.subsubforumtitle a:link{
+	color:#ffffff }
+.subsubforumtitle a:visited{
+	color:#ffffff }
+
+a:link {
+	color:#104D65;
 }
+a:visited {
+	color: #104D65;
+}
+a:hover {
+	color: #319f75;
+}
+a:active {	color: #FCCF76;
+}
+.subforumtitle{
+	padding-left: 15px;
+	padding-top: 5px;
+	padding-bottom: 3px;
+	padding-right: 15px;
+	font-size: 24pt;
+	background-color: #ffffff;
+	text-shadow: 2px 2px 2px #000000;
+	
+}
+
 .subforumdesc{
 	font-size: 13pt;
-	font-style: italic;
+	color: #104D65;
+	background-color: #ffffff;
+	padding: 5px 15px 15px 15px;
+	font-weight: bold;
 }
 .subforumheader{
 	padding: 0.5%;
 	padding-left: 1%;
 	margin-top: none;
+	margin-left:40%
 	padding-bottom: none;
 	margin-bottom: 0.5%;
 	border: 1px solid black;
@@ -107,11 +156,18 @@
 	font-style: italic;
 }
 #nolinks{
-	text-decoration: none;
+	position: absolute; 
+	bottom: 0px;
+	color:red;
 }
 .noposts{
 	padding: 1%;
 }
+.plus-jakarta-sans {
+	font-family: "Plus Jakarta Sans", sans-serif;
+	font-optical-sizing: auto;
+	font-style: normal; }
+
 .subsubforums{
 	border: 1px solid black;
 	padding: 0.5%;
@@ -124,18 +180,21 @@
 	font-size: 14pt;
 }
 .subsubforumdesc{
-	font-style: italic;
 	font-size: 12pt;
 }
 .toplevelinfo{
+	text-align:center;
 	padding: 0.5%;
 	font-weight: bold;
 }
 .actualpost{
 	padding: 1%;
+	background-color: #ffffff;
 	border: 1px solid black;
 	border-collapse: collapse;
 	margin-bottom: 1%;
+	border: #000000 solid;
+	border-radius: 25px;
 }
 .actualposttitle{
 	border-collapse: collapse;
