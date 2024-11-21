@@ -128,7 +128,7 @@ def send_message():
 		data = request.get_json()
 		sender_id = data.get('sender_id')
 		recipient_id = data.get('recipient_id')
-		content = data.get('content')
+		message = data.get('content')
 
 		sender = User.query.get(sender_id)
 		recipient = User.query.get(recipient_id)
@@ -136,14 +136,13 @@ def send_message():
 		if not sender or not recipient:
 			return jsonify({'error': 'Sender or recipient not found'}), 404
 
-		new_message = Message(sender_id=sender_id, recipient_id=recipient_id, content=content)
+		new_message = Message(sender_id=sender_id, recipient_id=recipient_id, message=message)
 
 		db.session.add(new_message)
 		db.session.commit()
 
-		return jsonify({'status': 'Message sent successfully', 'message_id': new_message.id}), 201
-
-
+		return redirect("/messages/1")
+	
 # Route to fetch messages for a user
 @rt.route('/messages/<user_id>', methods=['GET'])
 def get_messages(user_id):
