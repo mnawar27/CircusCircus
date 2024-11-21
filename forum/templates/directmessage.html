@@ -1,0 +1,29 @@
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <ul class="flashes">
+      {% for category, message in messages %}
+        <li class="alert alert-{{ category }}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+<form method="POST" action='/send_message'>
+    <!-- Recipient Username Input -->
+    <div class="mb-3">
+        <label for="recipient" class="form-label">To:</label>
+        <input type="text" class="form-control" id="recipient" name="recipient" placeholder="Enter recipient's username" required>
+    </div>
+
+    <!-- Message Content Input -->
+    <div class="mb-3">
+        <label for="content" class="form-label">Message:</label>
+        <textarea class="form-control" id="content" name="content" rows="4" placeholder="Enter your message" required></textarea>
+    </div>
+
+    <!-- Submit Button -->
+    <button id="sendMessageButton">Send Message</button>
+    <button type="submit" class="btn btn-primary">Send Message</button>
+</form>
+
+

@@ -1,17 +1,12 @@
 {% extends 'layout.html' %}
 {% block body%}
 <div class="toplevelinfo">
-	Top level subforums:
+	Messages:
 </div>
-{% for subforum in subforums %}
+{% for msg in received_messages %}
 <div class="subforumlisting">
 <div class="subforumtitle">
-<a href="/subforum?sub={{ subforum.id }}">
-{{ subforum.title}}
-</a>
-</div>
-<div class="subforumdesc">
-{{ subforum.description }}
+{{ msg }} - {{ msg.message }}
 </div>
 </div>
 {% endfor %}

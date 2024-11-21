@@ -2,7 +2,6 @@
 from flask import render_template
 from flask_login import LoginManager
 from forum.models import Subforum, db, User
-
 from . import create_app
 app = create_app()
 
@@ -10,13 +9,19 @@ app.config['SITE_NAME'] = 'Schooner'
 app.config['SITE_DESCRIPTION'] = 'a schooner forum'
 app.config['FLASK_DEBUG'] = 1
 
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///messages.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+
+
 def init_site():
 	print("creating initial subforums")
 	admin = add_subforum("Forum", "Announcements, bug reports, and general discussion about the forum belongs here")
 	add_subforum("Announcements", "View forum announcements here",admin)
 	add_subforum("Bug Reports", "Report bugs with the forum here", admin)
 	add_subforum("General Discussion", "Use this subforum to post anything you want")
-	add_subforum("Other", "Discuss other things here")
+	add_subforum("Other", "Discuss other things here")	
 
 def add_subforum(title, description, parent=None):
 	sub = Subforum(title, description)
@@ -51,7 +56,3 @@ with app.app_context():
 def index():
 	subforums = Subforum.query.filter(Subforum.parent_id == None).order_by(Subforum.id)
 	return render_template("subforums.html", subforums=subforums)
-
-
-
-
