@@ -56,3 +56,4 @@ with app.app_context():
 def index():
 	subforums = Subforum.query.filter(Subforum.parent_id == None).order_by(Subforum.id)
 	return render_template("subforums.html", subforums=subforums)
+

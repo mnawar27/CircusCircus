@@ -5,6 +5,11 @@ import datetime
 from flask import Blueprint, render_template, request, redirect, url_for
 from forum.models import User, Post, Comment, Subforum, Message, valid_content, valid_title, db, generateLinkPath, error
 from forum.user import username_taken, email_taken, valid_username
+#editMaisha
+from flask import Flask, flash, redirect, request, render_template
+from forum.models import PostReaction, db
+#editMaisha
+
 
 
 ##
@@ -33,6 +38,27 @@ def action_logout():
 	#todo
 	logout_user()
 	return redirect("/")
+
+
+# @rt.route('/user_settings')
+# def user_settings():
+# 	return "<p> Hellooooooo</p>"
+
+@rt.route('/user_settings')
+def user_settings():
+    if request.method == 'POST':
+        # Get form data
+        username = request.form.get('username')
+        pronoun = request.form.get('pronoun')
+        bio = request.form.get('bio')
+        
+        # Process or save the data (e.g., save to the database)
+        print(f"Received: Username={username}, Pronoun={pronoun}, Bio={bio}")
+        return f"<p>Saved! Username: {username}, Pronoun: {pronoun}, Bio: {bio}</p>"
+    
+    # Render the settings form
+    return render_template("user_settings.html")
+
 
 @rt.route('/action_createaccount', methods=['POST'])
 def action_createaccount():
@@ -92,7 +118,7 @@ def addpost():
 
 	return render_template("createpost.html", subforum=subforum)
 
-@rt.route('/viewpost')
+'''@rt.route('/viewpost')
 def viewpost():
 	postid = int(request.args.get("post"))
 	post = Post.query.filter(Post.id == postid).first()
@@ -101,7 +127,66 @@ def viewpost():
 	if not post.subforum.path:
 		subforumpath = generateLinkPath(post.subforum.id)
 	comments = Comment.query.filter(Comment.post_id == postid).order_by(Comment.id.desc()) # no need for scalability now
-	return render_template("viewpost.html", post=post, path=subforumpath, comments=comments)
+	return render_template("viewpost.html", post=post, path=subforumpath, comments=comments)'''
+
+#Maisha -- beginning of code
+@rt.route('/viewpost', methods=['GET'])
+def view_post():
+    post_id = request.args.get('post')
+    post = Post.query.get(post_id)
+    if not post:
+        flash('Post not found.')
+        return redirect('/')
+
+    # Count likes and dislikes
+    like = PostReaction.query.filter_by(post_id=post.id, reaction_type='like').count()
+    dislike = PostReaction.query.filter_by(post_id=post.id, reaction_type='dislike').count()
+
+    # Get the current user's reaction (if any)
+    current_reaction = PostReaction.query.filter_by(user_id=current_user.id, post_id=post.id).first()
+
+    comments = Comment.query.filter_by(post_id=post.id).all()
+
+    return render_template('viewpost.html', post=post, comments=comments, likes=like, dislikes=dislike,current_reaction = current_reaction)
+
+@rt.route('/react', methods=['POST'])
+def react_to_post():
+    if not current_user.is_authenticated:
+        flash('You must be logged in to react to posts.')
+        return redirect('/loginform')
+
+    post_id = request.form['post_id']
+    reaction_type = request.form['reaction']  # "like" or "dislike"
+    
+    # Validate inputs
+    if reaction_type not in ['like', 'dislike']:
+        flash('Invalid reaction type.')
+        return redirect('/viewpost?post=' + post_id)
+
+    # Check if the user already reacted to this post
+    existing_reaction = PostReaction.query.filter_by(user_id=current_user.id, post_id=post_id).first()
+    
+    if existing_reaction:
+        if existing_reaction.reaction_type == reaction_type:
+            # Remove the reaction if it's the same type (toggle off)
+            db.session.delete(existing_reaction)
+            db.session.commit()
+            flash(f'Removed your {reaction_type} reaction.')
+        else:
+            # Update the reaction type
+            existing_reaction.reaction_type = reaction_type
+            db.session.commit()
+            flash(f'Updated your reaction to {reaction_type}.')
+    else:
+        # Add a new reaction
+        new_reaction = PostReaction(user_id=current_user.id, post_id=post_id, reaction_type=reaction_type)
+        db.session.add(new_reaction)
+        db.session.commit()
+        flash(f'Added your {reaction_type} reaction.')
+
+    return redirect('/viewpost?post=' + post_id)
+#Maisha -- end of code
+
 
 @login_required
 @rt.route('/action_comment', methods=['POST', 'GET'])
