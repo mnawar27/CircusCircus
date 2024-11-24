@@ -1,20 +1,38 @@
 {% extends 'layout.html' %}
 {% block body%}
-<div class="toplevelinfo">
-	Top level subforums:
+<div class = "container">
+	<div class="row justify-content-md-center">
+		<div class="toplevelinfo">
+			Top level subforums:	
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-4">
+			<p>"This will be filled"</p>
+			<br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+		</div>
+		<div class="col-sm-8">/*Right Col*/
+			{% for subforum in subforums %}
+			<div class="subforumlisting">
+				<div class="subforumtitle">
+					<a href="/subforum?sub={{ subforum.id }}">
+					{{ subforum.title}}
+					</a>
+				</div>
+			</div>
+			<div class="subforumdesc">
+				{{ subforum.description }}
+				{% endfor %}
+				{% endblock %}
+			</div>
+		</div>
+	</div>
 </div>
-{% for subforum in subforums %}
-<div class="subforumlisting">
-<div class="subforumtitle">
-<a href="/subforum?sub={{ subforum.id }}">
-{{ subforum.title}}
-</a>
-</div>
-<div class="subforumdesc">
-{{ subforum.description }}
-</div>
-</div>
-{% endfor %}
+
 
 
 <div class="direct message">
