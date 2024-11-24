@@ -3,33 +3,27 @@
 body{
 	background-image: linear-gradient(#36aa7b,#104d62);
 	background-repeat: no-repeat;
-  	background-attachment: fixed;
+	background-attachment: fixed; 
 }
 .page{
 	font-family: Plus Jakarta Sans;
 	font-style: normal;
 	font-size: 14pt;
 
-	margin-left: 40%;
+	
 	margin-right: auto;
 	margin-top: 4%;
 	
 	padding-left: 3%;
 	padding-right: 3%;
-	height: 100vh;
 
 	
 
 }
 /* https://ibb.co/Q6kJrmY */
 .header{
-	position: relative;
-	background-image: url("https://i.imgur.com/EO2PGfo.png");
-	background-repeat: no-repeat;
 	background-color: #ffffff;
-	background-size: contain;
 	
-	height:150px;
 	vertical-align: middle;
 	padding: 0.5%;
 	
@@ -41,8 +35,8 @@ body{
 	margin-top: 0.5%;
 }
 .login{
-	position:absolute;
-	bottom:0px;
+	/* position:absolute; */
+	/*bottom:0px;*/
 	right:0px;
 	width: 25%;
 	float: right;
@@ -71,8 +65,8 @@ body{
  .subforumlisting{
 	padding: 5px;
 	margin-bottom: 5px;
-	border: #000000 solid;
 	border-radius: 25px;
+	width:auto;
 	background-color: #ffffff;
 } 
 .inputbox{
@@ -109,7 +103,6 @@ a:active {	color: #FCCF76;
 	padding-bottom: 3px;
 	padding-right: 15px;
 	font-size: 24pt;
-	background-color: #ffffff;
 	text-shadow: 2px 2px 2px #000000;
 	
 }
@@ -117,19 +110,17 @@ a:active {	color: #FCCF76;
 .subforumdesc{
 	font-size: 13pt;
 	color: #104D65;
-	background-color: #ffffff;
 	padding: 5px 15px 15px 15px;
-	font-weight: bold;
+	font-weight: bold; 
 }
 .subforumheader{
 	padding: 0.5%;
 	padding-left: 1%;
 	margin-top: none;
-	margin-left:40%
+	margin-left:40%;
 	padding-bottom: none;
 	margin-bottom: 0.5%;
-	border: 1px solid black;
-	font-size: 15pt;
+	font-size: 15pt; 
 }
 .subforumheadertitle{
 	display: inline;
@@ -156,8 +147,6 @@ a:active {	color: #FCCF76;
 	font-style: italic;
 }
 #nolinks{
-	position: absolute; 
-	bottom: 0px;
 	color:red;
 }
 .noposts{
@@ -169,7 +158,6 @@ a:active {	color: #FCCF76;
 	font-style: normal; }
 
 .subsubforums{
-	border: 1px solid black;
 	padding: 0.5%;
 	margin-top: 0.5%;
 	padding-left: 1%;
@@ -190,7 +178,6 @@ a:active {	color: #FCCF76;
 .actualpost{
 	padding: 1%;
 	background-color: #ffffff;
-	border: 1px solid black;
 	border-collapse: collapse;
 	margin-bottom: 1%;
 	border: #000000 solid;

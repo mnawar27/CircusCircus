@@ -1,10 +1,16 @@
 {% extends 'layout.html' %}
 {% block body %}
 
+
 {{ path|safe }}
+<div class="container">
 <div class="subforumheader">
 	<div class="subforumheadertitle">
-	{{ subforum.title}} 
+		<div class="row">
+			<div class="col-sm-6">	
+			{{ subforum.title}}
+			</div> 
+		</div>
 	</div>
 	--
 	<div class="subforumheaderdesc">
@@ -35,7 +41,7 @@
 	</div>
 	
 </div>
-
+</div>
 
 
 
