@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Revalia&display=swap');
 body{
 	background-image: linear-gradient(#36aa7b,#104d62);
 	background-repeat: no-repeat;
@@ -22,8 +22,9 @@ body{
 }
 /* https://ibb.co/Q6kJrmY */
 .header{
-	background-color: #ffffff;
-	
+	background-color: #5ec4a7;
+	border-radius: 10px;
+	border: #000000 solid 1px;
 	vertical-align: middle;
 	padding: 0.5%;
 	
@@ -35,8 +36,6 @@ body{
 	margin-top: 0.5%;
 }
 .login{
-	/* position:absolute; */
-	/*bottom:0px;*/
 	right:0px;
 	width: 25%;
 	float: right;
@@ -46,8 +45,9 @@ body{
 .loginbox{
 	margin-right: auto;
 	margin-left: auto;
-	text-align: center;
+	text-align: right;
 	margin-top: 3%;
+	text-shadow: #000000 1px 1px 1px;
 }
 .loginelement{
 	margin-top: 0.5%;
@@ -62,12 +62,36 @@ body{
 	text-align: center;
 
 }
- .subforumlisting{
+
+/* little logo https://i.postimg.cc/RZqNBTZM/Untitled-Artwork-1.png */
+
+/* Big logo https://i.postimg.cc/J4XBDxWP/Abstract-Letter-N-Logo-3-D-Sphere-Logo-template-on-transparent-background-PNG.png */
+
+.biglogo {
+	content:url(https://i.postimg.cc/J4XBDxWP/Abstract-Letter-N-Logo-3-D-Sphere-Logo-template-on-transparent-background-PNG.png);
+	width:100%;
+	height:auto;
+
+}
+
+.quotebox {
+	border:#FCCF76 solid 3px;
+	border-radius: 10px;
+	text-align: center;
+	margin-top:20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	background: rgba(49,159,117, 0.3);
+	color:#ffffff;
+	text-shadow: 2px 2px 2px #000000
+}
+
+.subforumlisting{
 	padding: 5px;
 	margin-bottom: 5px;
-	border-radius: 25px;
-	width:auto;
-	background-color: #ffffff;
+	width:100%;
 } 
 .inputbox{
 	padding: 0.25%;
@@ -98,21 +122,38 @@ a:hover {
 a:active {	color: #FCCF76;
 }
 .subforumtitle{
+	font-family:Revalia;
 	padding-left: 15px;
 	padding-top: 5px;
 	padding-bottom: 3px;
 	padding-right: 15px;
 	font-size: 24pt;
-	text-shadow: 2px 2px 2px #000000;
+	text-shadow: 1px 1px 1px #000000;
 	
+	
+}
+
+.forumholder{
+	background:rgba(49,159,117,.7);
+	border:#FCCF76 solid 3px;
+	border-radius: 10px;
+	padding:5px 15px 5px 5px;
+	margin-left:15px;
 }
 
 .subforumdesc{
 	font-size: 13pt;
-	color: #104D65;
+	color: #ffffff;
+	margin-left:10px;
 	padding: 5px 15px 15px 15px;
-	font-weight: bold; 
+	font-weight: bold;
+	text-shadow: 2px 2px 2px #000000 
 }
+
+.bottoms{
+	font-size:20px;
+}
+
 .subforumheader{
 	padding: 0.5%;
 	padding-left: 1%;
@@ -147,7 +188,9 @@ a:active {	color: #FCCF76;
 	font-style: italic;
 }
 #nolinks{
-	color:red;
+	content:url(https://i.postimg.cc/RZqNBTZM/Untitled-Artwork-1.png);
+	height:50px;
+	width:auto;
 }
 .noposts{
 	padding: 1%;
@@ -155,8 +198,14 @@ a:active {	color: #FCCF76;
 .plus-jakarta-sans {
 	font-family: "Plus Jakarta Sans", sans-serif;
 	font-optical-sizing: auto;
-	font-style: normal; }
+	font-style: normal; 
+}
 
+.revalia-regular {
+	font-family: "Revalia", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}	  
 .subsubforums{
 	padding: 0.5%;
 	margin-top: 0.5%;
