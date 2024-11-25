@@ -1,107 +1,88 @@
 {% extends 'layout.html' %}
 {% block body %}
-{{ path|safe}}
-
-<div class="actualpost">
-	<div class="actualposttitle">
-		<a href="/viewpost?post={{ post.id }}">{{post.title}}</a>
-		<div class="postposter" {% if post.user.admin %} style="color: red;" {% endif %}>
-			{{ post.user.username }}
-
-		</div>
-		<div class="posttime">
-			{{ post.get_time_string() }}
-		</div>
-	</div>
-	<div class="postcontent">
-		{{post.content}}
-	</div>
-
+{{ path|safe }}
+<div class = "container">
+	<div class="row">
+		<div class="actualpost">
+			<div class="actualposttitle">
+				<a href="/viewpost?post={{ post.id }}">{{post.title}}</a>
+				<div class="postposter" {% if post.user.admin %} style="color: red;" {% endif %}>
+					{{ post.user.username }}
+				</div>
+				<div class="posttime">
+					{{ post.get_time_string() }}
+				</div>
+			</div>
+			<div class="postcontent">
+				{{post.content}}
+			</div>
 <!-- Maisha -- beginning of code -->
 <!-- Like/Dislike Buttons -->
-<div class="reactions">
-    <!-- Like Button -->
-    <form action="/react" method="POST" style="display: inline-block;">
-        <input type="hidden" name="post_id" value="{{ post.id }}">
-        <input type="hidden" name="reaction" value="like">
-        <button type="submit" 
-                class="btn {{ 'btn-success' if current_reaction and current_reaction.reaction_type == 'like' else 'btn-outline-success' }}">
-            👍 <span>{{ likes if likes else '' }}</span>
-        </button>
-    </form>
-
+			<div class="reactions">
+<!-- Like Button -->
+				<form action="/react" method="POST" style="display: inline-block;">
+					<input type="hidden" name="post_id" value="{{ post.id }}">
+					<input type="hidden" name="reaction" value="like">
+					<button type="submit" class="btn {{ 'btn-success' if current_reaction and current_reaction.reaction_type == 'like' else 'btn-outline-success' }}">
+						👍 <span>{{ likes if likes else '' }}</span>
+					</button>
+				</form>
     <!-- Dislike Button -->
-    <form action="/react" method="POST" style="display: inline-block; margin-left: 10px;">
-        <input type="hidden" name="post_id" value="{{ post.id }}">
-        <input type="hidden" name="reaction" value="dislike">
-        <button type="submit" 
-                class="btn {{ 'btn-danger' if current_reaction and current_reaction.reaction_type == 'dislike' else 'btn-outline-danger' }}">
-            👎 <span>{{ dislikes if dislikes else '' }}</span>
-        </button>
-    </form>
-</div>
-
-<style>
-    .btn { display: flex; align-items: center; padding: 8px 20px; font-size: 16px; }
-    .btn span { font-weight: bold; color: white; margin-left: 5px; }
-    .reactions { display: flex; }
-</style>
-
+				<form action="/react" method="POST" style="display: inline-block; margin-left: 10px;">
+					<input type="hidden" name="post_id" value="{{ post.id }}">
+					<input type="hidden" name="reaction" value="dislike">
+					<button type="submit" class="btn {{ 'btn-danger' if current_reaction and current_reaction.reaction_type == 'dislike' else 'btn-outline-danger' }}">
+						👎 <span>{{ dislikes if dislikes else '' }}</span>
+					</button>
+				</form>
+			</div>
 <!-- Maisha -- end of code-->
-
-</div>
-<div class="addcomment" id="addcomment">
-	<form action="/action_comment?post={{ post.id }}" method="POST">
-		<textarea class="inputbox varwidth" rows="6" name="content"></textarea><br>
-		<input class="inputbox" style="margin-bottom: 1%;" type="submit" value="Comment">
-	</form>
-</div>
-<div style="text-align: center;">
-	
-	{% if current_user.is_authenticated %}
-	<input type="button" id="displayaddcomment" onclick="toggle()" value="Add a comment">
-
-	{% else %}
-	<a href="/loginform">Login or register to make a comment</a>
-	{% endif %}
-</div>
-{%if comments%}
-<div class="comments">
-{% for comment in comments %}
-	
-	<div class="comment">
-		<div class="commentuser">
-			(<span  {% if comment.user.admin %} style="color: red;" {% endif %}>{{ comment.user.username }}</span>) - 
 		</div>
-		<div class="commentcontent">
-			{{ comment.content }}
+		<div class="addcomment" id="addcomment">
+			<form action="/action_comment?post={{ post.id }}" method="POST">
+				<textarea class="inputbox varwidth" rows="6" name="content"></textarea><br>
+				<input class="inputbox" style="margin-bottom: 1%;" type="submit" value="Comment">
+			</form>
 		</div>
-		
-		<div class="commenttime">
-			{{ comment.get_time_string() }}
+		<div style="text-align: center;">
+			{% if current_user.is_authenticated %}
+			<input class="combutt" type="button" id="displayaddcomment" onclick="toggle()" value="Add a comment">
+				{% else %}
+			<a href="/loginform">Login or register to make a comment</a>
+			{% endif %}
 		</div>
+		{%if comments%}
+		<div class="comments">
+		{% for comment in comments %}
+			<div class="comment">
+				<div class="commentuser">
+					(<span  {% if comment.user.admin %} style="color: red;" {% endif %}>{{ comment.user.username }}</span>) - 
+				</div>
+				<div class="commentcontent">
+					{{ comment.content }}
+				</div>
+				<div class="commenttime">
+					{{ comment.get_time_string() }}
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+		{% endif %}
+		<script type="text/javascript">
+		function toggle(){
+			var div = document.getElementById("addcomment");
+			var button = document.getElementById("displayaddcomment")
+			if(div.style.display == "none" || div.style.display.trim() == ""){
+				div.style.display = "inline";
+				button.value="Hide";
+			}else{
+				div.style.display = "none";
+				button.value="Add a comment"
+			}
+		}
+		</script>
 	</div>
-	<br>
-	
-{% endfor %}
-</div>
-{% endif %}
-<script type="text/javascript">
-function toggle(){
-	var div = document.getElementById("addcomment");
-	var button = document.getElementById("displayaddcomment")
-	if(div.style.display == "none" || div.style.display.trim() == ""){
-		div.style.display = "inline";
-		button.value="Hide";
-	}else{
-		div.style.display = "none";
-		button.value="Add a comment"
-	}
-	
-}
-</script>
-
-
+</div>	
 {% endblock %}
 
 

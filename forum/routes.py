@@ -137,6 +137,7 @@ def view_post():
     if not post:
         flash('Post not found.')
         return redirect('/')
+	
 
     # Count likes and dislikes
     like = PostReaction.query.filter_by(post_id=post.id, reaction_type='like').count()
