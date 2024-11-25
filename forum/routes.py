@@ -40,11 +40,7 @@ def action_logout():
 	return redirect("/")
 
 
-# @rt.route('/user_settings')
-# def user_settings():
-# 	return "<p> Hellooooooo</p>"
-
-@rt.route('/user_settings')
+@rt.route('/user_settings', methods=['GET', 'POST'])
 def user_settings():
     if request.method == 'POST':
         # Get form data
