@@ -1,34 +1,31 @@
 {% extends 'layout.html' %}
-
 {% block body %}
-<h2>User Settings</h2>
-
-<!-- Form to update username, pronouns, and bio -->
-<form method="POST" action="/user_settings">
-    <div class="form-group">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username" required>
+<div class="container">
+    <div class="row">
+        <h2>User Settings</h2>
+    <!-- Form to update username, pronouns, and bio -->
+        <form method="POST" action="/user_settings">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username" required>
+            </div>
+        <div class="form-group">
+            <label for="pronoun">Pronouns:</label>
+            <input type="text" id="pronoun" name="pronoun" class="form-control" placeholder="Enter your pronouns">
+        </div>
+        <div class="form-group">
+            <label for="bio">Bio:</label>
+            <textarea id="bio" name="bio" class="form-control" placeholder="Tell us about yourself" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="combutt">Save Changes</button>
+        </div>
+        </form>
+        {% if request.method == 'POST' %}
+        <div class="alert alert-success">
+            <p>Saved! Username: {{ request.form.get('username') }}, Pronoun: {{ request.form.get('pronoun') }}, Bio: {{ request.form.get('bio') }}</p>
+        </div>
+        {% endif %}
     </div>
-
-    <div class="form-group">
-        <label for="pronoun">Pronouns:</label>
-        <input type="text" id="pronoun" name="pronoun" class="form-control" placeholder="Enter your pronouns">
-    </div>
-
-    <div class="form-group">
-        <label for="bio">Bio:</label>
-        <textarea id="bio" name="bio" class="form-control" placeholder="Tell us about yourself" rows="4"></textarea>
-    </div>
-
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary">Save Changes</button>
-    </div>
-</form>
-
-{% if request.method == 'POST' %}
-    <div class="alert alert-success">
-        <p>Saved! Username: {{ request.form.get('username') }}, Pronoun: {{ request.form.get('pronoun') }}, Bio: {{ request.form.get('bio') }}</p>
-    </div>
-{% endif %}
-
+</div>
 {% endblock %}

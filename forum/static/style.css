@@ -94,9 +94,24 @@ body{
 	margin-bottom: 5px;
 	width:100%;
 } 
+.inputboxbg{
+	padding: 0.25%;
+	margin-top: 0.5%;
+	height:80%;
+	width:auto;
+	background-image: url(https://i.postimg.cc/J4XBDxWP/Abstract-Letter-N-Logo-3-D-Sphere-Logo-template-on-transparent-background-PNG.png);
+	background-repeat: no-repeat;
+	background-size: 300px auto;
+	background-position: right;
+	background-position-y: bottom;
+	
+}
+
 .inputbox{
 	padding: 0.25%;
 	margin-top: 0.5%;
+	height:80%;
+	width:auto;
 }
 .errors{
 	border-bottom: 1px solid black;
@@ -199,8 +214,8 @@ a:active {
 	border-bottom: 1px solid gray;
 }
 .postusername{
-	background: rgba(225,225,225,.5);
-	width:80%;
+	background: rgba(225,225,225,1);
+	width:100%;
 	padding:10px 10px 10px 10px;
 	border-radius: 10px;
 	font-style: italic;
@@ -244,7 +259,7 @@ a:active {
 }
 .subsubforumtitle{
 	background: rgba(225,225,225,.8);
-	width:fit-content;
+	width:100%;
 	border:#000000 solid 1px;
 	padding:10px 10px 10px 10px;
 	border-top-left-radius: 10px;
@@ -259,7 +274,6 @@ a:active {
 	border:#000000 1px solid;
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
-	border-top-right-radius: 10px;
 	width:100%;
 	padding:10px 10px 10px 10px;
 	font-size: 12pt;

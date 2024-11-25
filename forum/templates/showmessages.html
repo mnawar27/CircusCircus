@@ -1,20 +1,20 @@
 {% extends 'layout.html' %}
 {% block body%}
-<div class="toplevelinfo">
-	Messages:
+<div class="container">
+	<div class="row">
+		<div class="toplevelinfo">
+			Messages:
+		</div>
+		{% for msg in received_messages %}
+		<div class="subforumlisting">
+			<div class="subforumtitle">
+				{{ msg }} - {{ msg.message }}
+			</div>
+		</div>
+			{% endfor %}
+		<div class="direct message">
+			<a href="/send_message">Direct Message</a>
+		</div>
+	</div>		
 </div>
-{% for msg in received_messages %}
-<div class="subforumlisting">
-<div class="subforumtitle">
-{{ msg }} - {{ msg.message }}
-</div>
-</div>
-{% endfor %}
-
-<div class="direct message">
-	<a href="/send_message">
-		Direct Message
-	</a>
-</div>		
-
 {% endblock %}
