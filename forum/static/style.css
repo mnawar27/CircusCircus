@@ -36,6 +36,7 @@ body{
 	margin-top: 0.5%;
 }
 .login{
+	padding:1%;
 	right:0px;
 	width: 25%;
 	float: right;
@@ -105,21 +106,22 @@ body{
 	color: red;
 	font-weight: bold;
 }
-.subsubforumtitle a:link{
-	color:#ffffff }
-.subsubforumtitle a:visited{
-	color:#ffffff }
 
 a:link {
+	font-weight: bold;
 	color:#104D65;
 }
 a:visited {
+	font-weight: bold;
 	color: #104D65;
 }
 a:hover {
-	color: #319f75;
+	font-weight: bold;
+	color: #1e7151;
 }
-a:active {	color: #FCCF76;
+a:active {
+	font-weight: bold;	
+	color: #FCCF76;
 }
 .subforumtitle{
 	font-family:Revalia;
@@ -141,6 +143,18 @@ a:active {	color: #FCCF76;
 	margin-left:15px;
 }
 
+.lighterback{
+	background-blend-mode: overlay;
+	background: rgba(225,225,225,.5);
+	border-radius: 10px;
+	padding:10px 10px 10px 10px;
+	margin:10px 10px 10px 10px;
+	background-image: url('https://i.postimg.cc/J4XBDxWP/Abstract-Letter-N-Logo-3-D-Sphere-Logo-template-on-transparent-background-PNG.png');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+}
+
 .subforumdesc{
 	font-size: 13pt;
 	color: #ffffff;
@@ -151,36 +165,53 @@ a:active {	color: #FCCF76;
 }
 
 .bottoms{
-	font-size:20px;
+	margin: auto;
+    width: auto;
+	font-size:22px;
+	border-radius: 10px;
+	padding:5px 15px 10px 15px;
+	background: rgba(225,225,225,.5);
+	text-shadow: none;
 }
 
 .subforumheader{
-	padding: 0.5%;
-	padding-left: 1%;
-	margin-top: none;
-	margin-left:40%;
-	padding-bottom: none;
-	margin-bottom: 0.5%;
-	font-size: 15pt; 
+	
+	text-align: center;
+	font-family:revalia;
+	margin:auto;
+	font-size: 20pt; 
 }
 .subforumheadertitle{
 	display: inline;
 	font-weight: bold;
 }
 .subforumheaderdesc{
-	display: inline;
+	text-align: center;
+	width:fit-content;
+	margin:auto;
+	border-radius: 10px;
+	padding:10px 10px 10px 10px;
+	background:rgba(225,225,225,.8);
+	font-weight: bold;
 }
 .post{
 	padding: 1%;
 	border-bottom: 1px solid gray;
 }
 .postusername{
+	background: rgba(225,225,225,.5);
+	width:80%;
+	padding:10px 10px 10px 10px;
+	border-radius: 10px;
 	font-style: italic;
 	font-size: 12pt;
+
 }
 .subforumheaderlink{
+	text-align:center;
+	font-weight: bold;
 	font-style: italic;
-	font-size: 12pt;
+	font-size: 15pt;
 	margin-top: 0.5%;
 }
 .postinginfo{
@@ -212,12 +243,27 @@ a:active {	color: #FCCF76;
 	padding-left: 1%;
 }
 .subsubforumtitle{
+	background: rgba(225,225,225,.8);
+	width:fit-content;
+	border:#000000 solid 1px;
+	padding:10px 10px 10px 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	font-family: revalia;
 	font-weight: bolder;
 	text-decoration: none;
 	font-size: 14pt;
 }
 .subsubforumdesc{
+	background: rgba(225,225,225,1);
+	border:#000000 1px solid;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-top-right-radius: 10px;
+	width:100%;
+	padding:10px 10px 10px 10px;
 	font-size: 12pt;
+	font-weight: bold;
 }
 .toplevelinfo{
 	text-align:center;
@@ -225,21 +271,28 @@ a:active {	color: #FCCF76;
 	font-weight: bold;
 }
 .actualpost{
-	padding: 1%;
-	background-color: #ffffff;
-	border-collapse: collapse;
-	margin-bottom: 1%;
-	border: #000000 solid;
-	border-radius: 25px;
+	background:rgba(49,159,117,.7);
+	border:#FCCF76 solid 3px;
+	border-radius: 10px;
+	padding:5px 15px 5px 5px;
+	margin-left:15px;
+	color:black;
 }
 .actualposttitle{
-	border-collapse: collapse;
-	border-bottom: 1px solid black;
-	padding: 1%;
+	background-color: rgba(225,225,225,.3);
+	border-radius: 10px;
+	width:70%;
+	margin:auto;
+	text-align: center;
+	padding: 10px 10px 10px 10px;
 	font-size: 16pt;
+	font-family:revalia;
 	font-weight: bold;
 }
 .postcontent{
+	background:rgba(225,225,225,1);
+	border-radius: 10px;
+	border:#000000 solid 2px;
 	padding: 1%;
 }
 .postposter{
@@ -260,6 +313,8 @@ a:active {	color: #FCCF76;
 	margin-top: 1%;
 }
 .comment{
+	background: white;
+	padding:10px 10px 10px 10px;
 	border-bottom: 1px solid gray;
 }
 .commentuser{
@@ -267,6 +322,7 @@ a:active {	color: #FCCF76;
 	font-weight: bold;
 }
 .commentcontent{
+	font-weight: bold;
 	display: inline;
 }
 .commenttime{
@@ -276,7 +332,6 @@ a:active {	color: #FCCF76;
 
 
 .addcomment{
-	display: none;
 	margin-right: auto;
 	margin-left: auto;
 	text-align: center;
@@ -284,4 +339,26 @@ a:active {	color: #FCCF76;
 .varwidth{
 	width: 50%;
 }
+.combutt{
+	padding: 5px 15px;
+	font-size: 20px;
+	text-align: center;
+	cursor: pointer;
+	outline: none;
+	color: #fff;
+	background-color: #04AA6D;
+	border: none;
+	border-radius: 15px;
+	box-shadow: 0 9px #628e8c;
+}
+.combutt:hover {background-color: #278268}	  
+.combutt:active {
+	background-color: #b89453;
+	box-shadow: 0 5px #628e8c;
+	transform: translateY(4px);
+}
 
+/*Maisha Code*/
+.btn { display: flex; align-items: center; padding: 8px 20px; font-size: 16px; }
+.btn span { font-weight: bold; color: white; margin-left: 5px; }
+.reactions { display: flex; }
