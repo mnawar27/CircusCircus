@@ -1,4 +1,4 @@
-from flask import jsonify, render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for
 from flask_login import current_user, login_user, logout_user
 from flask_login.utils import login_required
 import datetime
@@ -208,27 +208,22 @@ def comment():
 
 @rt.route('/send_message', methods=['POST', 'GET'])
 def send_message():
-	if request.method == 'GET':
-		return render_template("directmessage.html")
-	else:
-		data = request.get_json()
-		sender_id = data.get('sender_id')
-		recipient_id = data.get('recipient_id')
-		message = data.get('content')
+	if request.method == 'POST':
+		
+		recipient = request.form["recipient"]
+		message = request.form['content']
+		sender = request.form['userID']
+		#sender = User.query.get(sender_id)
+		recipient_id = User.query.filter_by(username=recipient).first().id
 
-		sender = User.query.get(sender_id)
-		recipient = User.query.get(recipient_id)
-
-		if not sender or not recipient:
-			return jsonify({'error': 'Sender or recipient not found'}), 404
-
-		new_message = Message(sender_id=sender_id, recipient_id=recipient_id, message=message)
+		new_message = Message(sender_id=sender, recipient_id=recipient_id, message=message)
 
 		db.session.add(new_message)
 		db.session.commit()
-
-		return redirect("/messages/1")
+		return redirect("/messages/"+str(current_user.id)) 
+	return render_template("directmessage.html")
 	
+
 # Route to fetch messages for a user
 @rt.route('/messages/<user_id>', methods=['GET'])
 def get_messages(user_id):
@@ -237,23 +232,24 @@ def get_messages(user_id):
         return redirect("/")
 
    # sent_messages = Message.query.filter(sender_id=user.id).all()
-   # received_messages = Message.query.filter_by(recipient_id=user.id).all()
-    received_messages = Message.query.all()
+    received_messages = Message.query.filter_by(recipient_id=user.id).all()
+    #received_messages = Message.query.all()
     print("messages")
     for m in received_messages:
         print(m.message)
     #sent_messages_data = [{'recipient': msg.recipient.username, 'content': msg.content} for msg in sent_messages]
-    #received_messages_data = [{'sender': msg.sender.username, 'content': msg.content} for msg in received_messages]
+    received_messages_data = [{'sender': msg.sender.username, 'content': msg.message} for msg in received_messages]
 
     return render_template("showmessages.html", 
-   #     sent_messages = sent_messages_data,
-        received_messages = received_messages)
+   	# sent_messages = sent_messages_data,
+    received_messages = received_messages_data)
     
 
 if __name__ == '__main__':
     db.create_all()  # Creates database tables if not already created
     rt.run(debug=True)
 	
+# End of Sharmin code	
 
 @login_required
 @rt.route('/action_post', methods=['POST'])

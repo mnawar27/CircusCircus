@@ -99,6 +99,7 @@ class Subforum(db.Model):
         self.description = description
 
 ###..sharmin...###
+
 # Define the Message model
 class Message(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -106,10 +107,10 @@ class Message(db.Model):
     recipient_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     message = db.Column(db.Text, nullable=False)
 
-    #sender = db.relationship('User', foreign_keys=[sender_id])
+    sender = db.relationship('User', foreign_keys=[sender_id])
     #recipient = db.relationship('User', foreign_keys=[recipient_id])
-
-
+    
+#End of sharmin code
 
 class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)

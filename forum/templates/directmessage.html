@@ -1,23 +1,23 @@
 {% extends 'layout.html' %}
 {% block body %}
-<div class="container">
-    <div class="row">
-        <form method="POST" action='/send_message'>
-        <!-- Recipient Username Input -->
-            <div class="mb-3">
-                <label for="recipient" class="form-label">To:</label>
-                <input type="text" class="form-control" id="recipient" name="recipient" placeholder="Enter recipient's username" required>
-            </div>
-        <!-- Message Content Input -->
-            <div class="mb-3">
-                <label for="content" class="form-label">Message:</label>
-                <textarea class="form-control" id="content" name="content" rows="4" placeholder="Enter your message" required></textarea>
-            </div>
-        <!-- Submit Button -->
-            <button type="submit" class="combutt">Send Message</button>
-        </form>
+<form method="POST" action='/send_message'>
+    <input type=hidden name=userID value="{{ current_user.id }}">
+    <!-- Recipient Username Input -->
+    <div class="mb-3">
+        <label for="recipient" class="form-label">To:</label>
+        <input type="text" class="form-control" id="recipient" name="recipient" placeholder="Enter recipient's username" required>
     </div>
-</div>
-{%endblock%}
+
+    <!-- Message Content Input -->
+    <div class="mb-3">
+        <label for="content" class="form-label">Message:</label>
+        <textarea class="form-control" id="content" name="content" rows="4" placeholder="Enter your message" required></textarea>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary">Send Message</button>
+</form>
+
+{% endblock %}
 
 

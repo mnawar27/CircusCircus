@@ -21,23 +21,26 @@
 							{{ subforum.title}}
 							</a>
 						</div>
-					</div>
 				</div>
 				<div class="row">
 					<div class="subforumdesc">
 						{{ subforum.description }}
-						{% endfor %}
+	
 					</div>
 				</div>
-				<div class="row">
-					<div class="bottoms">
-						<a href="/send_message">Direct Message</a> | 
-						<a href="/user_settings">User Settings</a>
-					</div>
-				</div>
+				{% endfor %}
+				<div class="direct message">
+					<a href="/send_message">
+						 Direct Message
+					</a>
+				</div>	
+					<a href="/messages/{{ current_user.id }}">
+						Show Messages
+					</a>
+				</div>		
+				<div class="subforumdesc">
+					<a href="/user_settings">
+						User Settings 
+					</a>
 			</div>
-		</div>
-	</div>
-</div>
 {% endblock %}
-
