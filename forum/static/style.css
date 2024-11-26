@@ -246,7 +246,26 @@ a:active {
 	font-optical-sizing: auto;
 	font-style: normal; 
 }
-
+.directmessage{
+	background:rgba(225,225,225,.8);
+	padding: 10px 10px 10px 10px;
+	margin:auto;
+	width:80%;
+	text-align: center;
+}
+.messagebgtitle {
+	text-align: center;
+	font-family: revalia;
+	font-size:25px;
+	
+}
+.messbg{
+	background:rgba(225,225,225,.8);
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	width:80%;
+	margin:auto;
+}
 .revalia-regular {
 	font-family: "Revalia", sans-serif;
 	font-weight: 400;
