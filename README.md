@@ -1,4 +1,7 @@
 # CircusCircus
+
+https://github.com/user-attachments/assets/de9f66d7-c4c5-46d3-8700-7eee69a54f62
+
 This is a minimal forum written in python with Flask. It supports only the bare minumum of features to allow discussions, including user accounts, threads, and comments.
 
 On first run, the default subforums will be created. Although custom subforums are not supported through any user interface, it is possible to modify forum/setup.py to create custom subforums.
@@ -15,7 +18,9 @@ On first run, the default subforums will be created. Although custom subforums a
 - divide `forum.py` into multiple modules (eg. `posts`, `comments`, `auth (login etc)`)
 - migrate from sqlite3 to MySQL
 - comments on each post (many comments to one post)
-- like/dislike/heart/etc emojis on posts
+- like/dislike
+
+/heart/etc emojis on posts
 - direct messages from one user to another
 - insert pix links and/or video links
 - a nice style based on Bootstrap
