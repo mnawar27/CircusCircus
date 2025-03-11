@@ -2,42 +2,49 @@
 
 https://github.com/user-attachments/assets/de9f66d7-c4c5-46d3-8700-7eee69a54f62
 
-This is a minimal forum written in python with Flask. It supports only the bare minumum of features to allow discussions, including user accounts, threads, and comments.
 
-On first run, the default subforums will be created. Although custom subforums are not supported through any user interface, it is possible to modify forum/setup.py to create custom subforums.
+Circus Circus is a feature-rich online forum designed for the ZipCode Wilmington community. It provides an interactive platform where users can create posts, leave comments, react with emojis, send direct messages, and manage their content with ease. Built with modularity and scalability in mind, Circus Circus supports both public and private posts, user authentication, and rich media integration.
 
-## Create a Github Organization
+#Features
 
-- create an org
-- make all group members collaborators
-- clone/branch from group's org's repo.
-- maintain two branches,`main` & `dev` (plus a different branch for each group member)
+User Authentication: Secure login and registration system.
 
-## Features to Add
+Public & Private Posts: Public posts are visible to everyone, while private posts require user authentication.
 
-- divide `forum.py` into multiple modules (eg. `posts`, `comments`, `auth (login etc)`)
-- migrate from sqlite3 to MySQL
-- comments on each post (many comments to one post)
-- like/dislike
+Markdown Support: Posts can be written in plain text or Markdown for enhanced formatting.
 
-/heart/etc emojis on posts
-- direct messages from one user to another
-- insert pix links and/or video links
-- a nice style based on Bootstrap
-  - a logo on every page
-  - copyright, about etc on footer of each page
-- user settings
-- public/private posts
-  - public posts can be seen by people not logged in
-  - private posts can only be seen by users logged in
-- posts can be plain text or markdown
+Rich Media Integration: Users can insert image and video links in their posts.
 
-## Changes in 2020
+Bootstrap Styling: Clean, responsive, and modern UI based on Bootstrap.
 
-I had to make a bunch of changes in this code to get it running. Took far longer than it should.
-But now, if I have it right, you need to clone this and then
+Footer Information: Copyright, About page, and other essential links on every page.
 
-This currently puts a sqlite3 db in the /tmp directory.
+#User Interaction
+
+Post Creation & Management: Users can create, edit, and delete their posts.
+
+Comments: Each post supports multiple comments for discussions.
+
+Reactions: Users can like, dislike, or react with emojis on posts.
+
+Direct Messaging: Users can send private messages to one another.
+
+#User Settings
+
+Profile Management: Users can update their settings and preferences.
+
+Privacy Controls: Manage who can view posts and interactions.
+
+#Tech Stack
+
+Backend: Python (Flask)
+
+Database: MySQL (migrated from SQLite3)
+
+Frontend: HTML, CSS, JavaScript, Bootstrap
+
+Authentication: Flask-Login
+
 
 ```
 $ python3 -m venv venv
@@ -49,11 +56,3 @@ $ ./run.sh
 and it should appear on port 5000
 
 `http://0.0.0.0:5000`
-
-## Changes in 2023
-
-database is now in `instance/` directory
-removed version labels from `requirements.txt`
-
-The Heroku file is broken.
-The Procfile is broken too.
