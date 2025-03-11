@@ -5,7 +5,7 @@ https://github.com/user-attachments/assets/de9f66d7-c4c5-46d3-8700-7eee69a54f62
 
 Circus Circus is a feature-rich online forum designed for the ZipCode Wilmington community. It provides an interactive platform where users can create posts, leave comments, react with emojis, send direct messages, and manage their content with ease. Built with modularity and scalability in mind, Circus Circus supports both public and private posts, user authentication, and rich media integration.
 
-#Features
+# Features
 
 User Authentication: Secure login and registration system.
 
@@ -19,7 +19,7 @@ Bootstrap Styling: Clean, responsive, and modern UI based on Bootstrap.
 
 Footer Information: Copyright, About page, and other essential links on every page.
 
-#User Interaction
+# User Interaction
 
 Post Creation & Management: Users can create, edit, and delete their posts.
 
@@ -29,13 +29,13 @@ Reactions: Users can like, dislike, or react with emojis on posts.
 
 Direct Messaging: Users can send private messages to one another.
 
-#User Settings
+# User Settings
 
 Profile Management: Users can update their settings and preferences.
 
 Privacy Controls: Manage who can view posts and interactions.
 
-#Tech Stack
+# Tech Stack
 
 Backend: Python (Flask)
 
